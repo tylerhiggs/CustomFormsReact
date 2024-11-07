@@ -18,11 +18,11 @@ export default tseslint.config({
   languageOptions: {
     // other options...
     parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
+      project: ["./tsconfig.node.json", "./tsconfig.app.json"],
       tsconfigRootDir: import.meta.dirname,
     },
   },
-})
+});
 ```
 
 - Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
@@ -31,11 +31,11 @@ export default tseslint.config({
 
 ```js
 // eslint.config.js
-import react from 'eslint-plugin-react'
+import react from "eslint-plugin-react";
 
 export default tseslint.config({
   // Set the react version
-  settings: { react: { version: '18.3' } },
+  settings: { react: { version: "18.3" } },
   plugins: {
     // Add the react plugin
     react,
@@ -44,7 +44,51 @@ export default tseslint.config({
     // other rules...
     // Enable its recommended rules
     ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
+    ...react.configs["jsx-runtime"].rules,
   },
-})
+});
+```
+
+## Tailwind CSS
+
+This project uses [Tailwind CSS](https://tailwindcss.com/) for utility-first CSS framework.
+
+### Tailwind CSS IntelliSense
+
+[VSCode](https://code.visualstudio.com/) + [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) is the official VSCode extension that provides instant Tailwind CSS IntelliSense.
+
+## Headless UI
+
+This project uses [Headless UI](https://headlessui.dev/) for completely unstyled, fully accessible UI components.
+
+Example:
+
+```tsx
+import { Dialog } from '@headlessui/react'
+
+export default Component() {
+  return (
+    <Dialog>
+      <Dialog.Title>...</Dialog.Title>
+      <Dialog.Description>...</Dialog.Description>
+      <Dialog.Button>...</Dialog.Button>
+    </Dialog>
+  )
+}
+```
+
+## Heroicons
+
+This project uses [Heroicons](https://heroicons.com/) for a set of free, MIT-licensed high-quality SVG icons.
+
+Example:
+
+```tsx
+import { CheckCircleIcon } from '@heroicons/react/outline'
+
+export default Component() {
+  return (
+    <CheckCircleIcon className="w-6 h-6 text-green-500" />
+  )
+}
 ```
